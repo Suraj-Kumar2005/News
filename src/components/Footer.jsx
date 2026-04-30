@@ -33,7 +33,7 @@ const Footer = ({ category, setCategory }) => {
 
   return (
     <footer className="container app-footer-wrap">
-      <div className="app-footer">
+      <div className="app-footer glass-panel">
         <div ref={footerRef} className={`footer-motion ${isVisible ? "show" : ""}`}>
           <div className="footer-glow" aria-hidden="true" />
           <div className="footer-main">

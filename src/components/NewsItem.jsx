@@ -30,7 +30,15 @@ const NewsItem = ({title,description,urlToImage,url,source,publishedAt}) => {
   return (
     <article className="card h-100 glass-card premium-news-card">
       <div className="news-image-wrap">
-        <img src={urlToImage || image} className="card-img-top news-card-img" alt={title || "news"} />
+        <img
+          src={urlToImage || image}
+          className="card-img-top news-card-img"
+          alt={title || "news"}
+          onError={(event) => {
+            event.currentTarget.onerror = null;
+            event.currentTarget.src = image;
+          }}
+        />
         <div className="news-image-overlay">
           <span className="news-source">{source || "News"}</span>
           <span className="news-date">{formatDate(publishedAt)}</span>

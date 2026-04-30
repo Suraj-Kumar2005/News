@@ -8,8 +8,9 @@ const NewsBoard = ({category, searchQuery}) => {
 
     useEffect(() => {
         const controller = new AbortController();
+        
         const url = `https://newsapi.org/v2/top-headlines?country=us&category=${category}&apiKey=${import.meta.env.VITE_API_KEY}`;
-
+       
         fetch(url, { signal: controller.signal })
           .then(response => response.json())
           .then(data =>setArticles(data.articles || []))
@@ -52,7 +53,11 @@ const NewsBoard = ({category, searchQuery}) => {
       <div className="row g-4 news-grid">
         {filteredArticles.map((news, index) => {
           return (
-            <div className="col-12 col-md-6 col-lg-4 d-flex news-grid-item" key={news.url || index}>
+            <div
+              className="col-12 col-md-6 col-lg-4 d-flex news-grid-item"
+              key={news.url || index}
+              style={{ "--animation-delay": `${Math.min(index, 8) * 70}ms` }}
+            >
               <NewsItem
                 title={news.title}
                 description={news.description}
