@@ -8,8 +8,7 @@ const NewsBoard = ({category, searchQuery}) => {
 
     useEffect(() => {
         const controller = new AbortController();
-        
-        
+      //const url=`https://newsapi.org/v2/top-headlines?country=us&category=${category}&apiKey=${import.meta.env.VITE_API_KEY} `;
        const url=`https://newsapi.org/v2/everything?q==${category}&sortBy=publishedAt&apiKey=${import.meta.env.VITE_API_KEY}&pageSize=25`;
         fetch(url, { signal: controller.signal })
           .then(response => response.json())

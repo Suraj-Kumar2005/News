@@ -9,7 +9,7 @@ const Navbar = ({category, setCategory, searchQuery, setSearchQuery, theme, setT
         <div className="nav-left">
           {/* Brand */}
           <a className="navbar-brand fw-bold fs-4 brand-mark" href="#">
-            <span className="brand-prefix">🇺🇸US</span>
+            <span className="brand-prefix">NewsPulse🇺🇸</span>
             <span className="badge brand-badge fs-5">News</span>
           </a>
 
